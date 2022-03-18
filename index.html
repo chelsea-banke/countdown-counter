@@ -6,9 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>countdown</title>
     <link rel="stylesheet" href="/bootstrap.min.css">
+    <style>
+        body {
+            background-color: aliceblue;
+        }
+        header{
+            box-shadow: 0px 10px 10px 0px rgb(231, 231, 231);
+            background: linear-gradient(90deg, rgb(0, 0, 0), rgb(255, 255, 255), rgb(255, 255, 255));
+        }
+        #more{
+            margin-right: -200px !important;
+        }
+        nav{
+            border-radius: 5px;
+            background: linear-gradient(90deg, rgb(236, 219, 219), rgb(236, 219, 219), rgb(219, 236, 221));
+        }
+    </style>
 </head>
 <body>
-    
+    <header class="row bg-white">
+        <div class="col-6">
+            <h1 class="display-6 text-white mx-4 my-3">CountDown...</h1>
+        </div>
+        <div class="col-md-6 text-md-center"  id="nav">
+            <nav class="col-md-6 btn-group my-2">
+                <button class="btn">About</button>
+                <button class="btn">Connect</button>
+                <button class="btn">Contact</button>
+            </nav>
+            <button class="btn" id="more">more<img src="/resourses/icons/down-arrow-svgrepo-com.svg"></button>
+        </div>
+    </header>
     <script src="/index.js"></script>
 </body>
 </html>
