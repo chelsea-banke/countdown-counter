@@ -12,24 +12,84 @@
         }
         header{
             box-shadow: 0px 10px 10px 0px rgb(231, 231, 231);
-            background: linear-gradient(90deg, rgb(0, 0, 0), rgb(255, 255, 255), rgb(255, 255, 255));
+            overflow: hidden;
+        }
+        h1{
+            font-weight: 400 !important;
         }
         #more{
             margin-right: -200px !important;
         }
-        nav{
+        .nav-bar{
+            margin-right: 20% !important;
             border-radius: 5px;
             background: linear-gradient(90deg, rgb(236, 219, 219), rgb(236, 219, 219), rgb(219, 236, 221));
+        }
+        /* ._carousel-item{
+            background-color: black;
+        } */
+        .poster{
+            display: block;
+            /* border-radius: 5px; */
+            width: 60%;
+            margin: auto;
+            /* margin-top: 20px; */
+        }
+        #slide-left{
+            position: absolute;
+            top: 45%;
+            left: 20px;
+        }
+        #slide-left img{
+            width: 40px;
+            height: 40px;
+            transform: rotate(90deg);
+        }
+        #slide-right{
+            position: absolute;
+            top: 45%;
+            right: 20px;
+        }
+        #slide-right img{
+            width: 40px;
+            height: 40px;
+            transform: rotate(270deg);
+        }
+        #slide-left:hover, #slide-right:hover{
+            background-color: aliceblue;
+        }
+        #carousel-container{
+            border-top: 1px solid black;
+            position: relative;
+        }
+        @media screen and (max-width: 1000px) {
+            #nav-1{
+                display: none;
+            }
+            #more{
+                border-top: 1px solid rgb(0, 0, 0);
+                border-bottom: 1px solid rgb(0, 0, 0);
+                background: linear-gradient(0deg, rgb(236, 219, 219), rgb(236, 219, 219), rgb(219, 236, 221));
+                margin-left: 20%;
+            }
+            /* #logo{
+                border-radius: 10px;
+            } */
+        }
+        @media screen and (max-width: 1000px) {
+            #more{
+                margin-left: -85px;
+            }
         }
     </style>
 </head>
 <body>
     <header class="row bg-white">
-        <div class="col-6">
+        <div class="col-6 bg-dark text-center" id="logo">
             <h1 class="display-6 text-white mx-4 my-3">CountDown...</h1>
         </div>
-        <div class="col-md-6 text-md-center"  id="nav">
-            <nav class="col-md-6 btn-group my-2">
+        <div class="col-6 text-center">
+            <nav class="btn-group my-2 nav-bar" id="nav-1">
                 <button class="btn">About</button>
                 <button class="btn">Connect</button>
                 <button class="btn">Contact</button>
@@ -37,6 +97,19 @@
             <button class="btn" id="more">more<img src="/resourses/icons/down-arrow-svgrepo-com.svg"></button>
         </div>
     </header>
+    <div class="row">
+        <div class="col-md-6 bg-dark" id="carousel-container">
+            <button class="btn" id="slide-left"><img src="/resourses/icons/down-arrow-svgrepo-com.svg" alt=""></button>
+            <button class="btn" id="slide-right"><img src="/resourses/icons/down-arrow-svgrepo-com.svg" alt=""></button>
+            <div id="carousel">
+                <div class="_carousel-item">
+                    <img src="/resourses/posters/Doctor_Strange_Poster_2.png" class="poster">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" id="clock">
+        </div>
+    </div>
     <script src="/index.js"></script>
 </body>
 </html>
