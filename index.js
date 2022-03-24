@@ -21,27 +21,43 @@ movies.forEach( _movie => {
     carouselItem.classList.add("_carousel-item");
     carouselItem.innerHTML = `<img src="/${_movie.poster}" class="poster" value="${index}">`;
     document.getElementById("carousel").append(carouselItem);
+
+    let skip = document.createElement("div");
+    skip.classList.add("switch");
+    skip.setAttribute("value", index);
+    document.getElementById("switch-container").append(skip);
     index ++;
 })
+
+let switches = document.querySelectorAll(".switch");
+function clearSwitch(move){
+    switches.forEach(_switch => {
+        _switch.style.background = "white";
+    })
+    switches[move].style.background = "black";
+    switches[move].style.border = "1px solid rgba(255, 255, 255, 0.589)";
+}
 
 let current = 0;
 let background = document.getElementById("carousel-container");
 let carouselItems = document.querySelectorAll("._carousel-item");
-
 function display(){
     carouselItems[current].style.display = "flex";
     let image = movies[parseInt(carouselItems[current].value)].poster;
     document.getElementById("title").textContent = movies[parseInt(carouselItems[current].value)].title;
     background.style.backgroundImage = "url("+image+")";
 }
-
 display();
+clearSwitch(0);
+
 document.getElementById("slide-right").addEventListener("click", function(){
     carouselItems[current].style.display = "none"
     current += 1;
     current = (current) % (carouselItems.length);
     display();
+    clearSwitch(current);
 })
+
 document.getElementById("slide-left").addEventListener("click", function(){
     carouselItems[current].style.display = "none"
     if (current == 0){
@@ -51,4 +67,19 @@ document.getElementById("slide-left").addEventListener("click", function(){
         current -= 1;
     }
     display();
+    clearSwitch(current);
 })
+
+document.getElementById("switch-container").addEventListener("click", function(event){
+    if (event.target.getAttribute("class") == "switch"){
+        current = parseInt(event.target.getAttribute("value"));
+        carouselItems.forEach(carouselItem => {
+            carouselItem.style.display = "none";
+        })
+        display();
+        clearSwitch(current);
+    }
+})
+// switches.forEach(_switch => {
+
+// })
