@@ -31,7 +31,24 @@ let carouselItems = document.querySelectorAll("._carousel-item");
 function display(){
     carouselItems[current].style.display = "flex";
     let image = movies[parseInt(carouselItems[current].value)].poster;
+    document.getElementById("title").textContent = movies[parseInt(carouselItems[current].value)].title;
     background.style.backgroundImage = "url("+image+")";
 }
 
 display();
+document.getElementById("slide-right").addEventListener("click", function(){
+    carouselItems[current].style.display = "none"
+    current += 1;
+    current = (current) % (carouselItems.length);
+    display();
+})
+document.getElementById("slide-left").addEventListener("click", function(){
+    carouselItems[current].style.display = "none"
+    if (current == 0){
+        current = carouselItems.length-1;
+    }
+    else {
+        current -= 1;
+    }
+    display();
+})
