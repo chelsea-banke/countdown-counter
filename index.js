@@ -26,6 +26,12 @@ movies.forEach( _movie => {
     skip.classList.add("switch");
     skip.setAttribute("value", index);
     document.getElementById("switch-container").append(skip);
+
+    let dropdownItem = document.createElement("div");
+    dropdownItem.value = index;
+    dropdownItem.classList.add("dropdown-title");
+    dropdownItem.innerHTML = `-> ${_movie.title}`;
+    document.getElementById("all").append(dropdownItem);
     index ++;
 })
 
@@ -50,10 +56,13 @@ function display(){
 display();
 clearSwitch(0);
 
+let posters = document.querySelectorAll(".poster");
 document.getElementById("slide-right").addEventListener("click", function(){
     carouselItems[current].style.display = "none"
     current += 1;
     current = (current) % (carouselItems.length);
+    posters[current].style.animationName = "carouselSwitchRight";
+    posters[current].style.animationDuration = "3s";
     display();
     clearSwitch(current);
 })
@@ -66,6 +75,8 @@ document.getElementById("slide-left").addEventListener("click", function(){
     else {
         current -= 1;
     }
+    posters[current].style.animationName = "carouselSwitchLeft";
+    posters[current].style.animationDuration = "3s";
     display();
     clearSwitch(current);
 })
@@ -80,6 +91,39 @@ document.getElementById("switch-container").addEventListener("click", function(e
         clearSwitch(current);
     }
 })
-// switches.forEach(_switch => {
 
-// })
+function toogle(value){
+    if (value){
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+let visibility = false; 
+document.getElementById("more").addEventListener("click", function(){
+    visibility = toogle(visibility);
+    if (visibility){
+        document.getElementById("all").style.display = "none";
+        document.getElementById("drop-icon").style.transform = "rotate(360deg)";
+    }
+    else{
+        document.getElementById("all").style.display = "block";
+        document.getElementById("drop-icon").style.transform = "rotate(180deg)";
+    }
+})
+
+document.getElementById("all").addEventListener("click", function(event){
+    if (event.target.classList == "dropdown-title"){
+        current = parseInt(event.target.value);
+        carouselItems.forEach(carouselItem => {
+            carouselItem.style.display = "none";
+        })
+        display();
+        clearSwitch(current);
+        visibility = toogle(visibility);
+        document.getElementById("all").style.display = "none";
+        document.getElementById("drop-icon").style.transform = "rotate(360deg)"
+    }
+})
