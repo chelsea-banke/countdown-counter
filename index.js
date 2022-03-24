@@ -4,14 +4,14 @@ class movie {
         this.poster = poster;
         this.realeaseDate = realeaseDate;
     }
-}
-// November 11, 2022
-// July 8, 2022
-// December 16, 2022
-// March 17, 2023
-// April 15, 2022
+} 
 let movies = [
-    new movie("Multiverse Of Madness", "resourses/posters/Doctor_Strange_Poster_2.png", "06/05/2022")
+    new movie("Multiverse Of Madness", "resourses/posters/doctor-strange-multiverse-of-madness.png", "May 05, 2022"),
+    new movie("Wakanda Forever", "resourses/posters/wakanda-forever.jpg", "November 11, 2022"),
+    new movie("Thor Love and Thunder", "resourses/posters/thor-love-and-thunder.jpg", "July 8, 2022"),
+    new movie("Avatar 2", "resourses/posters/avatar-2.jpg", "December 16, 2022"),
+    new movie("Aquaman And The Lost Kingdom", "resourses/posters/aquaman-and-the-lost-kingdom.jpg", "March 17, 2023"),
+    new movie("Fantastic Beasts And The Secrets Of Dombledore", "resourses/posters/fantastic-beasts-and-the-secrets-of-dombledore.png", "April 15, 2022")
 ]
 
 let index = 0;
@@ -25,6 +25,13 @@ movies.forEach( _movie => {
 })
 
 let current = 0;
+let background = document.getElementById("carousel-container");
 let carouselItems = document.querySelectorAll("._carousel-item");
-carouselItems[current].style.display = "flex";
-console.log(carouselItems[current])
+
+function display(){
+    carouselItems[current].style.display = "flex";
+    let image = movies[parseInt(carouselItems[current].value)].poster;
+    background.style.backgroundImage = "url("+image+")";
+}
+
+display();
