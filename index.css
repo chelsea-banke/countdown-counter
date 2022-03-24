@@ -1,0 +1,113 @@
+body {
+    background-color: aliceblue;
+}
+header{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 10px 10px 0px rgb(231, 231, 231);
+    overflow: hidden;
+    border-bottom: 1px solid white;
+}
+h1{
+    font-weight: 400 !important;
+}
+#more{
+    margin-right: -200px !important;
+    opacity: 0.9;
+}
+.nav-bar{
+    margin-right: 20% !important;
+    border-radius: 5px;
+    background: linear-gradient(90deg, rgb(236, 219, 219), rgb(236, 219, 219), rgb(219, 236, 221));
+}
+/* ._carousel-item{
+    background-color: black;
+} */
+.poster{
+    /* border-radius: 5px; */
+    width: 60%;
+    margin: auto;
+    /* margin-top: 20px; */
+}
+#slide-left{
+    position: absolute;
+    top: 45%;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.295);
+}
+#slide-left img{
+    width: 40px;
+    height: 40px;
+    transform: rotate(90deg);
+}
+#slide-right{
+    position: absolute;
+    top: 45%;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.295);
+}
+#slide-right img{
+    width: 40px;
+    height: 40px;
+    transform: rotate(270deg);
+}
+#slide-left:hover, #slide-right:hover{
+    background-color: aliceblue;
+}
+#carousel-container{
+    border-top: 1px solid black;
+    position: relative;
+    background-image: url("resourses/posters/Doctor_Strange_Poster_2.png");
+}
+.back-blur{
+    backdrop-filter: blur(1px);
+}
+#logo{
+        /* box-shadow: 0px -10px 10px -5px white inset; */
+        background-color: black;
+    }
+/* #section-2{
+    box-shadow: 0px -10px 10px -5px rgb(165, 165, 165) inset;
+} */
+#title {
+    /* position: absolute; */
+    color: white;
+    /* left: 50%; */
+    margin-left: 5px;
+}
+._carousel-item{
+    display: none;
+}
+@media screen and (max-width: 1000px) {
+    #nav-1{
+        display: none;
+    }
+    #more{
+        border-top: 1px solid rgb(0, 0, 0);
+        border-bottom: 1px solid rgb(0, 0, 0);
+        background: linear-gradient(0deg, rgb(236, 219, 219), rgb(236, 219, 219), rgb(219, 236, 221));
+        margin-left: 20%;
+    }
+    /* #logo{
+        border-radius: 10px;
+    } */
+}
+@media screen and (max-width: 1000px) {
+    #more{
+        margin-left: -85px;
+    }
+}
+@media screen and (max-width: 400px) {
+    #slide-left{
+        left: 0px;
+    }
+    #slide-right{
+        right: 0px;
+    }
+    header{
+        background-color: rgb(0, 0, 0);
+    }
+    #more{
+        background: white;
+        opacity: 1;
+    }
+}
