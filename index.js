@@ -9,7 +9,7 @@ class movie {
 // July 8, 2022
 // December 16, 2022
 // March 17, 2023
-// April 15
+// April 15, 2022
 let movies = [
     new movie("Multiverse Of Madness", "resourses/posters/Doctor_Strange_Poster_2.png", "06/05/2022")
 ]
@@ -26,5 +26,5 @@ movies.forEach( _movie => {
 
 let current = 0;
 let carouselItems = document.querySelectorAll("._carousel-item");
-carouselItems[current].style.display = "block";
+carouselItems[current].style.display = "flex";
 console.log(carouselItems[current])
