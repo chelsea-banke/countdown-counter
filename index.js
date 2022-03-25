@@ -56,18 +56,16 @@ function display(){
 display();
 clearSwitch(0);
 
-let posters = document.querySelectorAll(".poster");
-document.getElementById("slide-right").addEventListener("click", function(){
+function nextL(){
     carouselItems[current].style.display = "none"
     current += 1;
     current = (current) % (carouselItems.length);
-    posters[current].style.animationName = "carouselSwitchRight";
+    posters[current].style.animationName = "carouselSwitchLeft";
     posters[current].style.animationDuration = "3s";
     display();
     clearSwitch(current);
-})
-
-document.getElementById("slide-left").addEventListener("click", function(){
+}
+function nextR(){
     carouselItems[current].style.display = "none"
     if (current == 0){
         current = carouselItems.length-1;
@@ -75,10 +73,18 @@ document.getElementById("slide-left").addEventListener("click", function(){
     else {
         current -= 1;
     }
-    posters[current].style.animationName = "carouselSwitchLeft";
+    posters[current].style.animationName = "carouselSwitchRight";
     posters[current].style.animationDuration = "3s";
     display();
     clearSwitch(current);
+}
+let posters = document.querySelectorAll(".poster");
+document.getElementById("slide-right").addEventListener("click", function(){
+    nextR();
+})
+
+document.getElementById("slide-left").addEventListener("click", function(){
+    nextL();
 })
 
 document.getElementById("switch-container").addEventListener("click", function(event){
@@ -129,25 +135,9 @@ document.getElementById("all").addEventListener("click", function(event){
 })
 
 document.getElementById("carousel-container").addEventListener("swiped-left", function(){
-    carouselItems[current].style.display = "none"
-    if (current == 0){
-        current = carouselItems.length-1;
-    }
-    else {
-        current -= 1;
-    }
-    posters[current].style.animationName = "carouselSwitchLeft";
-    posters[current].style.animationDuration = "3s";
-    display();
-    clearSwitch(current);
+    nextL();
 })
 
 document.getElementById("carousel-container").addEventListener("swiped-right", function(){
-    carouselItems[current].style.display = "none"
-    current += 1;
-    current = (current) % (carouselItems.length);
-    posters[current].style.animationName = "carouselSwitchRight";
-    posters[current].style.animationDuration = "3s";
-    display();
-    clearSwitch(current);
+    nextR();
 })
