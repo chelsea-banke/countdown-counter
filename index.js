@@ -127,3 +127,27 @@ document.getElementById("all").addEventListener("click", function(event){
         document.getElementById("drop-icon").style.transform = "rotate(360deg)"
     }
 })
+
+document.getElementById("carousel-container").addEventListener("swiped-left", function(){
+    carouselItems[current].style.display = "none"
+    if (current == 0){
+        current = carouselItems.length-1;
+    }
+    else {
+        current -= 1;
+    }
+    posters[current].style.animationName = "carouselSwitchLeft";
+    posters[current].style.animationDuration = "3s";
+    display();
+    clearSwitch(current);
+})
+
+document.getElementById("carousel-container").addEventListener("swiped-right", function(){
+    carouselItems[current].style.display = "none"
+    current += 1;
+    current = (current) % (carouselItems.length);
+    posters[current].style.animationName = "carouselSwitchRight";
+    posters[current].style.animationDuration = "3s";
+    display();
+    clearSwitch(current);
+})
