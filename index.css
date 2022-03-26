@@ -1,4 +1,5 @@
 body {
+    overflow-x: hidden;
     background-color: aliceblue;
 }
 header{
@@ -145,6 +146,70 @@ h1{
     background-color: rgb(173, 173, 173);
     color: black;
 }
+#chart-background{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: rgb(238, 238, 238);
+    /* background: conic-gradient(red, orange, yellow, green, blue); */
+    background: conic-gradient(rgb(151, 132, 255) 20%, rgb(163, 255, 163) 40%,  rgb(255, 255, 191) 60%, rgb(255, 222, 162) 80%, red 100%);
+    border-radius: 50%;
+    box-shadow: 5px 5px 5px rgb(197, 197, 197), -5px -5px 5px rgb(255, 255, 255);
+    margin: auto;
+    margin-top: 10%;
+}
+#chart{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: conic-gradient(rgba(255, 255, 255, 0)  0% 85%, rgb(238, 238, 238) 0% 100%);
+    border-radius: 50%;
+}
+#release-date{
+    margin: auto;
+    text-align: center;
+    margin-top: 5%;
+}
+.counter{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 5%;
+    width: 50%;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgb(207, 207, 207);
+    padding: 10px;
+}
+.counter div{
+    margin: auto;
+    display: inline-block;
+}
+.counter .btn{
+    border-left: 1px solid black !important;
+    border-right: 1px solid black !important;
+}
+#days, #seconds{
+    border: none !important;
+}
+#caption{
+    margin-top: 5px;
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: none;
+    /* margin-left: 2px; */
+    padding: 0px;
+}
+#caption div{
+    position: relative;
+    border: 1px solid black;
+    margin: auto;
+    padding: 10px;
+    font-size: small;
+    text-align: right;
+}
+#caption div div{
+    right: 0px;
+}
 @keyframes carouselSwitchLeft {
     0%{margin-right: -60%;}
     100%{margin-right: 0%;}
@@ -186,5 +251,13 @@ h1{
     }
     #slide-right{
         right: 0px;
+    }
+    #chart-background{
+        width: 150px;
+        height: 150px; 
+    }
+    #chart{
+        width: 150px;
+        height: 150px; 
     }
 }
