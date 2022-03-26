@@ -9,7 +9,7 @@
     <link href="/index.css" rel="stylesheet" />
 </head>
 <body>
-    <header class="row">
+    <header class="row sticky-top">
         <div class="col-6 text-center" id="logo">
             <h1 class="display-6 text-white mx-4 my-3">CountDown...</h1>
         </div>
@@ -39,6 +39,7 @@
             </div>
             <div id="chart-background">
                 <div id="chart"></div>
+                <div id="swipe"></div>
             </div>
             <div class="btn-group counter">
                 <div class="btn" id="days" title="days">199<hr>days</div>
@@ -54,7 +55,8 @@
             <button class="btn">About</button>
             <button class="btn">Contact</button>
             <button class="btn">Custom</button>
-        </div>
+        </div><br>
+        <p>Created by @chelseabanke</p>
     </footer>
     <script src="/swipe-events.js"></script>
     <script src="/index.js"></script>

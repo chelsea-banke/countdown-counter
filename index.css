@@ -4,7 +4,7 @@ body {
 }
 header{
     background-color: rgb(255, 255, 255);
-    box-shadow: 0px 10px 10px 0px rgb(231, 231, 231);
+    /* box-shadow: 0px 10px 10px 0px rgb(0, 0, 0); */
     overflow: hidden;
     border-bottom: 1px solid white;
 }
@@ -126,7 +126,7 @@ h1{
 }
 #all{
     display: none;
-    position: absolute;
+    position: fixed;
     top: 82px;
     right: 0px;
     width: 50%;
@@ -147,6 +147,7 @@ h1{
     color: black;
 }
 #chart-background{
+    position: relative;
     width: 250px;
     height: 250px;
     border-radius: 50%;
@@ -164,6 +165,20 @@ h1{
     border-radius: 50%;
     background: conic-gradient(rgba(255, 255, 255, 0)  0% 85%, rgb(238, 238, 238) 0% 100%);
     border-radius: 50%;
+}
+#swipe{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 75px;
+    height: 75px;
+    border-radius: 100% 0 0 0;
+    background: linear-gradient(50deg, rgba(34, 34, 34, 0) 56%, rgb(255, 255, 255));
+    animation: linear;
+    animation-name: swipe;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transform-origin: 100% 100%;
 }
 #release-date{
     margin: auto;
@@ -190,20 +205,31 @@ h1{
     margin-top: 3%;
 }
 .counter .btn{
-    border-left: 1px solid black !important;
-    border-right: 1px solid black !important;
+    border-left: 1px solid rgb(133, 133, 133) !important;
+    border-right: 1px solid rgb(133, 133, 133) !important;
 }
 #days, #seconds{
     border: none !important;
 }
 footer{
     background-color: black;
-    display: flex;
-    justify-content: center;
-    height: 25px;
+    /* display: flex; */
+    /* justify-content:center; */
+    height: 50px;
+}
+footer p{
+    margin: auto;
+    bottom: 10px;
+    text-align: center;
+    padding-bottom: 10px;
+    color: rgb(209, 209, 209);
 }
 #nav-2{
+    margin: auto;
+    top: 15px;
     display: none;
+    justify-content: center;
+    width: 80%;
 }
 @keyframes carouselSwitchLeft {
     0%{margin-right: -60%;}
@@ -218,6 +244,14 @@ footer{
         opacity: 0;
     }
     100%{opacity: 1;}
+}
+@keyframes swipe {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
 }
 @media screen and (max-width: 1000px) {
     #more{
@@ -239,7 +273,7 @@ footer{
         display: none;
     }
     #nav-2{
-        display: block;
+        display: flex;
     }
     #all{
         width: 100%;
@@ -247,7 +281,10 @@ footer{
     }
     footer{
         height: auto;
-        margin-top: 20px;
+        margin-top: 60px;
+    }
+    #all{
+        border: 0px;
     }
 }
 @media screen and (max-width: 400px) {
