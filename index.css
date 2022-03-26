@@ -72,7 +72,7 @@ h1{
     /* animation-name: backOpacity;
     animation-duration: 3s; */
     overflow: hidden;
-    box-shadow: 0px 5px 10px rgb(150, 150, 150);
+    /* box-shadow: 0px 5px 10px rgb(150, 150, 150); */
 }
 .back-blur{
     backdrop-filter: blur(1px);
@@ -196,6 +196,15 @@ h1{
 #days, #seconds{
     border: none !important;
 }
+footer{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    height: 25px;
+}
+#nav-2{
+    display: none;
+}
 @keyframes carouselSwitchLeft {
     0%{margin-right: -60%;}
     100%{margin-right: 0%;}
@@ -223,12 +232,22 @@ h1{
     }
 }
 @media screen and (max-width: 786px) {
+    #carousel-container{
+        box-shadow: 0px 5px 10px rgb(150, 150, 150);
+    }
     #nav-1{
         display: none;
+    }
+    #nav-2{
+        display: block;
     }
     #all{
         width: 100%;
         top: 70px;
+    }
+    footer{
+        height: auto;
+        margin-top: 20px;
     }
 }
 @media screen and (max-width: 400px) {
