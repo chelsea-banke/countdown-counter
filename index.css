@@ -170,9 +170,10 @@ h1{
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 75px;
-    height: 75px;
+    width: 125px;
+    height:125px;
     border-radius: 100% 0 0 0;
+    /* border-right: 1px solid rgb(255, 255, 255); */
     background: linear-gradient(50deg, rgba(34, 34, 34, 0) 56%, rgb(255, 255, 255));
     animation: linear;
     animation-name: swipe;
@@ -180,20 +181,34 @@ h1{
     animation-iteration-count: infinite;
     transform-origin: 100% 100%;
 }
+#percentage{
+    position: absolute;
+    border-radius: 50px;
+    box-shadow: 3px 3px 5px rgb(197, 197, 197) inset, -3px -3px 5px rgb(255, 255, 255) inset; 
+    padding: 7px;
+    font-size: small;
+    left: 50%;
+    margin-left: -19px;
+    top: 75%;
+    /* z-index: 1; */
+    color: rgb(124, 124, 124);
+}
 #release-date{
     margin: auto;
     text-align: center;
     margin-top: 5%;
 }
-.counter{
+#counter{
     display: flex;
     justify-content: center;
     margin: auto;
     margin-top: 5%;
     width: 80%;
-    background-color: rgb(231, 231, 231);
+    background-color: rgb(253, 253, 253);
     border-radius: 5px;
-    box-shadow: 3px 3px 5px rgb(207, 207, 207), -3px -3px 5px rgb(255, 255, 255);
+    box-shadow: 3px 3px 5px rgb(197, 197, 197) inset, -3px -3px 5px rgb(255, 255, 255) inset; 
+    /* box-shadow: 3px 3px 5px rgb(207, 207, 207); */
+    /* border: 1px solid rgb(0, 0, 0); */
     padding: 10px;
 }
 #minutes{
@@ -204,11 +219,11 @@ h1{
     margin: auto;
     margin-top: 3%;
 }
-.counter .btn{
-    border-left: 1px solid rgb(133, 133, 133) !important;
-    border-right: 1px solid rgb(133, 133, 133) !important;
+#counter .btn{
+    border-left: 1px solid rgb(206, 206, 206) !important;
+    border-right: 1px solid rgb(206, 206, 206) !important;
 }
-#days, #seconds{
+#counter #days, #counter #seconds{
     border: none !important;
 }
 footer{
@@ -301,5 +316,9 @@ footer p{
     #chart{
         width: 150px;
         height: 150px; 
+    }
+    #swipe{
+        width: 75px;
+        height: 75px;
     }
 }

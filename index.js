@@ -2,7 +2,7 @@ class movie {
     constructor(title, poster, realeaseDate){
         this.title = title;
         this.poster = poster;
-        this.realeaseDate = realeaseDate;
+        this.releaseDate = realeaseDate;
     }
 } 
 let movies = [
@@ -14,6 +14,8 @@ let movies = [
     new movie("Fantastic Beasts And The Secrets Of Dombledore", "resourses/posters/fantastic-beasts-and-the-secrets-of-dombledore.png", "April 15, 2022")
 ]
 
+let currentDate = new Date();
+let referenceDate = new Date("January 01, 2022");
 let index = 0;
 movies.forEach( _movie => {
     let carouselItem = document.createElement("div");
@@ -47,14 +49,31 @@ function clearSwitch(move){
 let current = 0;
 let background = document.getElementById("carousel-container");
 let carouselItems = document.querySelectorAll("._carousel-item");
+function counterDisplay(){
+    currentDate = new Date();
+    let releaseDate = new Date(movies[current].releaseDate);
+    let percentageLeft = (((currentDate.getTime()-referenceDate.getTime()) / (releaseDate.getTime()-referenceDate.getTime()))*100);
+    let timeLeft = dhm(releaseDate.getTime() - currentDate.getTime());
+    document.getElementById("chart").style.background = "conic-gradient(rgba(255, 255, 255, 0)  0%" + percentageLeft + "%, rgb(238, 238, 238) 0% 100%)";
+    document.getElementById("percentage").innerHTML=`${Math.floor(percentageLeft)}%`;
+    document.getElementById("counter").innerHTML = `
+    <div class="btn" id="days">${timeLeft[0]}<hr>days</div>
+    <div class="btn" id="hours">${timeLeft[1]}<hr>hours</div>               
+    <div class="btn" id="minutes">${timeLeft[2]}<hr>minutes</div>
+    <div class="btn" id="seconds">${timeLeft[3]}<hr>seconds</div>
+    `
+}
 function display(){
     carouselItems[current].style.display = "flex";
     let image = movies[parseInt(carouselItems[current].value)].poster;
     document.getElementById("title").textContent = movies[parseInt(carouselItems[current].value)].title;
     background.style.backgroundImage = "url("+image+")";
+    document.getElementById("release-date").innerHTML=`${movies[current].releaseDate}`;
+    counterDisplay();
 }
 display();
 clearSwitch(0);
+setInterval(function(){counterDisplay()}, 1000);
 
 function nextL(){
     carouselItems[current].style.display = "none"
@@ -126,6 +145,7 @@ document.getElementById("all").addEventListener("click", function(event){
         carouselItems.forEach(carouselItem => {
             carouselItem.style.display = "none";
         })
+        posters[current].style.animationName = "backOpacity";
         display();
         clearSwitch(current);
         visibility = toogle(visibility);
@@ -150,5 +170,5 @@ function dhm (ms) {
     const minutes = Math.floor(hoursms / (60*1000));
     const minutesms = ms % (60*1000);
     const sec = Math.floor(minutesms / 1000);
-    return days + ":" + hours + ":" + minutes + ":" + sec;
+    return [days, hours, minutes, sec];
 }
