@@ -175,15 +175,19 @@ h1{
     justify-content: center;
     margin: auto;
     margin-top: 5%;
-    width: 50%;
-    background-color: white;
+    width: 80%;
+    background-color: rgb(231, 231, 231);
     border-radius: 5px;
-    box-shadow: 3px 3px 5px rgb(207, 207, 207);
+    box-shadow: 3px 3px 5px rgb(207, 207, 207), -3px -3px 5px rgb(255, 255, 255);
     padding: 10px;
 }
-.counter div{
+#minutes{
+    border-left: 0px !important;
+}
+#clock p{
+    text-align: center;
     margin: auto;
-    display: inline-block;
+    margin-top: 3%;
 }
 .counter .btn{
     border-left: 1px solid black !important;
@@ -191,24 +195,6 @@ h1{
 }
 #days, #seconds{
     border: none !important;
-}
-#caption{
-    margin-top: 5px;
-    background-color: rgba(255, 255, 255, 0);
-    box-shadow: none;
-    /* margin-left: 2px; */
-    padding: 0px;
-}
-#caption div{
-    position: relative;
-    border: 1px solid black;
-    margin: auto;
-    padding: 10px;
-    font-size: small;
-    text-align: right;
-}
-#caption div div{
-    right: 0px;
 }
 @keyframes carouselSwitchLeft {
     0%{margin-right: -60%;}
