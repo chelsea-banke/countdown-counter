@@ -9,15 +9,15 @@
     <link href="/index.css" rel="stylesheet" />
 </head>
 <body>
-    <header class="row sticky-top">
+    <header class="row sticky-top" id="header">
         <div class="col-6 text-center" id="logo">
             <h1 class="display-6 text-white mx-4 my-3">CountDown...</h1>
         </div>
         <div class="col-6 text-center" id="section-2">
             <nav class="btn-group my-2 nav-bar" id="nav-1">
-                <button class="btn">About</button>
+                <button class="btn about">About</button>
                 <button class="btn">Contact</button>
-                <button class="btn">Custom</button>
+                <button class="btn">Add+</button>
             </nav>
             <button class="btn" id="more">_ALL_<img src="/resourses/icons/down-arrow-svgrepo-com.svg" id="drop-icon"></button>
         </div>
@@ -47,11 +47,26 @@
             <p class="display-6">Left !!</p>
         </div>
     </div>
+    <div id="modal-overlay">
+        <div id="about">
+            <button class="btn cancel">X</button>
+            <br><h2>About</h2><hr>
+            <p>CountDown is a countdown counter for upcoming movies release dates.<br><br>
+                If like me you're a movie fan then you'll know how keeping those dates can be really hard.<br><br>
+                The chart shows the time left for the release in percentage from January 01, 2022.
+            </p>
+        </div>
+        <div id="adder-form">
+            <form action="">
+
+            </form>
+        </div>
+    </div>
     <footer>
         <div  class="btn-group my-2 nav-bar" id="nav-2">
-            <button class="btn">About</button>
+            <button class="btn about">About</button>
             <button class="btn">Contact</button>
-            <button class="btn">Custom</button>
+            <button class="btn">Add+</button>
         </div><br>
         <p>Created by @chelseabanke</p>
     </footer>

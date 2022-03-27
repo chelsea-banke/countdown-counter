@@ -172,3 +172,23 @@ function dhm (ms) {
     const sec = Math.floor(minutesms / 1000);
     return [days, hours, minutes, sec];
 }
+function displayModal(){
+    document.getElementById("modal-overlay").style.display = "block";
+    document.getElementById("header").style.zIndex = "0";
+    document.body.style.overflow = "hidden";
+}
+document.querySelectorAll(".about").forEach(element => {
+    element.addEventListener("click", function(){
+        displayModal();
+        document.getElementById("about").style.display = "block";
+    })
+})
+
+document.querySelectorAll(".cancel").forEach(cancel => {
+    cancel.addEventListener("click", function(){
+        document.getElementById("modal-overlay").style.display = "none";
+        document.getElementById("about").style.display = "none";
+        document.getElementById("header").style.zIndex = "1";
+        document.body.style.overflow = "scroll";
+    })
+})
