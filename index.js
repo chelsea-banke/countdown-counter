@@ -183,6 +183,12 @@ document.querySelectorAll(".about").forEach(element => {
         document.getElementById("about").style.display = "block";
     })
 })
+document.querySelectorAll(".connect").forEach(element => {
+    element.addEventListener("click", function(){
+        displayModal();
+        document.getElementById("connect").style.display = "block";
+    })
+})
 
 document.querySelectorAll(".cancel").forEach(cancel => {
     cancel.addEventListener("click", function(){
@@ -190,5 +196,6 @@ document.querySelectorAll(".cancel").forEach(cancel => {
         document.getElementById("about").style.display = "none";
         document.getElementById("header").style.zIndex = "1";
         document.body.style.overflow = "scroll";
+        document.getElementById("connect").style.display = "none";
     })
 })
