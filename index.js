@@ -62,8 +62,10 @@ function counterDisplay(){
     <div class="btn" id="minutes">${timeLeft[2]}<hr>minutes</div>
     <div class="btn" id="seconds">${timeLeft[3]}<hr>seconds</div>
     `
+    // console.log(referenceDate.toString())
 }
 function display(){
+    referenceDate = new Date("January 01, 2022");
     carouselItems[current].style.display = "flex";
     let image = movies[parseInt(carouselItems[current].value)].poster;
     document.getElementById("title").textContent = movies[parseInt(carouselItems[current].value)].title;
@@ -190,14 +192,18 @@ document.querySelectorAll(".connect").forEach(element => {
     })
 })
 
+function cancelModal(){
+    document.getElementById("modal-overlay").style.display = "none";
+    document.getElementById("about").style.display = "none";
+    document.getElementById("edit-chart").style.display = "none";
+    document.getElementById("edit-form").style.display = "none";
+    document.getElementById("header").style.zIndex = "1";
+    document.body.style.overflow = "scroll";
+    document.getElementById("connect").style.display = "none";
+}
 document.querySelectorAll(".cancel").forEach(cancel => {
     cancel.addEventListener("click", function(){
-        document.getElementById("modal-overlay").style.display = "none";
-        document.getElementById("about").style.display = "none";
-        document.getElementById("edit-chart").style.display = "none";
-        document.getElementById("header").style.zIndex = "1";
-        document.body.style.overflow = "scroll";
-        document.getElementById("connect").style.display = "none";
+        cancelModal();
     })
 })
 
@@ -212,4 +218,17 @@ document.getElementById("chart-edit-button").addEventListener("click", function(
 document.getElementById("edit-button").addEventListener("click", function(){
     document.getElementById("edit-chart").style.display = "none";
     document.getElementById("edit-form").style.display = "block";
+})
+
+document.getElementById("save-edit").addEventListener("click", function(){
+    let newReferenceDate = new Date(document.getElementById("select-date").value);
+    if(newReferenceDate.getTime() >= currentDate.getTime()){
+        alert("new refrence date can't be above the current date !!")
+    }
+    else{
+        console.log(newReferenceDate.toString())
+        referenceDate = newReferenceDate;
+        console.log(referenceDate.toString())
+    }
+    cancelModal();
 })
