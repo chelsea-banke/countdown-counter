@@ -40,10 +40,10 @@
             <div id="chart-background">
                 <div id="chart"></div>
                 <div id="swipe"></div>
-                <div id="percentage">100%</div>
+                <div id="percentage"></div>
             </div>
-            <div class="btn-group" id="counter">
-            </div>
+            <button class="btn" id="chart-edit-button">About Chart</button>
+            <div class="btn-group" id="counter"></div>
             <p class="display-6">Left !!</p>
         </div>
     </div>
@@ -65,6 +65,18 @@
             <a href=""><img src="/resourses/icons/Linkedin.png" alt=""></a>
             <a href=""><img src="/resourses/icons/Instagram.svg.png" alt=""></a>
         </div>
+        <div id="edit-chart">
+            <button class="btn cancel">X</button><br>
+            <h2>Chart</h2><hr>
+            <p>The pie chart shows how much time has passed from the default refrence date (January 01, 2022) till the present date and how much time is still left for the release in percentage.</p><br>
+            <button class="btn" id="edit-button">edit reference date</button>
+        </div>
+        <form action="" id="edit-form">
+            <label for="select-date">choose new reference date</label>
+            <input type="date" id="select-date"><br><br><br>
+            <button class="btn cancel" id="cancel-form">Cancel</button>
+            <button class="btn" type="submit" id="save-edit">save</button>
+        </form>
         <div id="adder-form">
             <form action="">
 

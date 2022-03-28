@@ -55,7 +55,7 @@ function counterDisplay(){
     let percentageLeft = (((currentDate.getTime()-referenceDate.getTime()) / (releaseDate.getTime()-referenceDate.getTime()))*100);
     let timeLeft = dhm(releaseDate.getTime() - currentDate.getTime());
     document.getElementById("chart").style.background = "conic-gradient(rgba(255, 255, 255, 0)  0%" + percentageLeft + "%, rgb(238, 238, 238) 0% 100%)";
-    document.getElementById("percentage").innerHTML=`${Math.floor(percentageLeft)}%`;
+    document.getElementById("percentage").innerHTML=`${Math.floor(100-percentageLeft)}%`;
     document.getElementById("counter").innerHTML = `
     <div class="btn" id="days">${timeLeft[0]}<hr>days</div>
     <div class="btn" id="hours">${timeLeft[1]}<hr>hours</div>               
@@ -194,8 +194,22 @@ document.querySelectorAll(".cancel").forEach(cancel => {
     cancel.addEventListener("click", function(){
         document.getElementById("modal-overlay").style.display = "none";
         document.getElementById("about").style.display = "none";
+        document.getElementById("edit-chart").style.display = "none";
         document.getElementById("header").style.zIndex = "1";
         document.body.style.overflow = "scroll";
         document.getElementById("connect").style.display = "none";
     })
+})
+
+document.getElementById("chart").addEventListener("click", function(){
+    displayModal();
+    document.getElementById("edit-chart").style.display = "block";  
+})
+document.getElementById("chart-edit-button").addEventListener("click", function(){
+    displayModal();
+    document.getElementById("edit-chart").style.display = "block";  
+})
+document.getElementById("edit-button").addEventListener("click", function(){
+    document.getElementById("edit-chart").style.display = "none";
+    document.getElementById("edit-form").style.display = "block";
 })
