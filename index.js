@@ -79,8 +79,12 @@ setInterval(function(){counterDisplay()}, 1000);
 
 function nextL(){
     carouselItems[current].style.display = "none"
-    current += 1;
-    current = (current) % (carouselItems.length);
+    if (current == 0){
+        current = carouselItems.length-1;
+    }
+    else {
+        current -= 1;
+    }
     posters[current].style.animationName = "carouselSwitchLeft";
     posters[current].style.animationDuration = "3s";
     display();
@@ -88,12 +92,8 @@ function nextL(){
 }
 function nextR(){
     carouselItems[current].style.display = "none"
-    if (current == 0){
-        current = carouselItems.length-1;
-    }
-    else {
-        current -= 1;
-    }
+    current += 1;
+    current = (current) % (carouselItems.length);
     posters[current].style.animationName = "carouselSwitchRight";
     posters[current].style.animationDuration = "3s";
     display();
@@ -114,6 +114,7 @@ document.getElementById("switch-container").addEventListener("click", function(e
         carouselItems.forEach(carouselItem => {
             carouselItem.style.display = "none";
         })
+        posters[current].style.animationName = "backOpacity";
         display();
         clearSwitch(current);
     }
